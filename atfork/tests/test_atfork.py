@@ -19,15 +19,22 @@
 # Author: Gregory P. Smith <greg@krypto.org>
 
 """Tests for atfork."""
+from __future__ import absolute_import
 
 import os
 import sys
-from cStringIO import StringIO
+try:
+    from cStringIO import StringIO
+except ImportError:
+    from io import StringIO
 import traceback
 import unittest
 
 import atfork
 
+
+if sys.version_info[0] >= 3:
+    from importlib import reload
 
 class AtforkTest(unittest.TestCase):
     def setUp(self):

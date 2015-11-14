@@ -17,10 +17,11 @@
 # Licensed to the PSF under a Contributor Agreement.
 #
 # Author: Gregory P. Smith <greg@krypto.org>
+from __future__ import print_function
 
 import sys, os
 top_dir = os.path.dirname(__file__)
-os.environ['PYTHONPATH'] = top_dir
+sys.path.append(top_dir)
 
 status = 0
 test_dir = os.path.join(top_dir, 'atfork', 'tests')
@@ -29,7 +30,7 @@ for test_file in os.listdir(test_dir):
         continue
     test_path = os.path.join(test_dir,test_file)
     test_command = "'%s' '%s'" % (sys.executable, test_path)
-    print 'Running', test_command
+    print ('Running', test_command)
     status += os.system(test_command)
 
 if status:

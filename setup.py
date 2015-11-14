@@ -18,7 +18,7 @@
 #
 # Author: Gregory P. Smith <greg@krypto.org>
 
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 import atfork
 
@@ -27,5 +27,5 @@ setup(name='atfork',
       author='Gregory P. Smith',
       author_email='greg@krypto.org',
       url='http://code.google.com/p/python-atfork/',
-      packages=['atfork', 'atfork.tests'],
+      packages=find_packages(),
       )
